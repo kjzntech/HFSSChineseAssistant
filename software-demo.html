@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HFSS 中文助手 V1.0.1 · 悬浮翻译</title>
+<link rel="icon" type="image/png" href="images/icon.png">
+<link rel="stylesheet" href="css/software-demo.css">
+</head>
+<body>
+<div class="stage">
+  <div class="container">
+
+    <!-- ===== 01 主窗口 ===== -->
+    <div class="section">
+      <div class="section-head">
+        <span class="num">01</span>
+        <h2>主界面</h2>
+        <span class="sub">HFSS 中文助手 · 悬浮翻译</span>
+      </div>
+
+      <div class="window" role="application" aria-label="HFSS 中文助手">
+
+        <div class="titlebar">
+          <img class="appicon" src="images/icon.png" alt="">
+          <span class="appname">HFSS 中文助手 V1.0.1</span>
+          <span class="badge">AEDT 2018 兼容版</span>
+          <div class="spacer"></div>
+          <div class="winctrl">
+            <button id="btnTheme" class="theme" aria-label="切换到浅色主题" title="切换深浅色主题">
+              <svg id="themeIcon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+            </button>
+            <button id="btnMin" aria-label="最小化" title="最小化">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14"/></svg>
+            </button>
+            <button id="btnClose" class="close" aria-label="关闭" title="关闭">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="body">
+
+          <div class="hero">
+            <div class="logo-wrap">
+              <img class="logo" src="images/icon.png" alt="HFSS 中文助手 Logo">
+            </div>
+            <div>
+              <h1>HFSS 中文助手 <em>V1.0.1</em></h1>
+              <div class="sub">
+                <span>AEDT 2018 · 悬停翻译</span>
+                <span class="chip">鼠标悬停即显中文</span>
+              </div>
+              <p class="desc">本版本不修改 AEDT 文件。将鼠标停在 AEDT 菜单、Ribbon 按钮或属性项上，即可显示对应的中文翻译。</p>
+            </div>
+          </div>
+
+          <div class="card status-card" id="statusCard">
+            <svg class="ic" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-7 7c0 2.5 1.2 4.2 2 5.4V17a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-2.6c.8-1.2 2-2.9 2-5.4a7 7 0 0 0-7-7z"/><path d="M10 22h4"/></svg>
+            <div class="txt">
+              <span class="live-dot"></span><b id="statusB">状态：已发现 AEDT</b><br>
+              <span class="hint" id="statusHint">请把鼠标移到 AEDT 界面，即可查看中文翻译。</span>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button class="btn primary" id="btnPause">
+              <span class="sp" id="pauseIcon">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>
+              </span>
+              <span id="pauseText">暂停翻译</span>
+            </button>
+            <button class="btn" id="btnAbout">
+              <span class="sp"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M12 11v5"/></svg></span>
+              关于
+            </button>
+            <button class="btn" id="btnMin2">
+              <span class="sp"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14"/></svg></span>
+              最小化
+            </button>
+            <button class="btn danger" id="btnExit">
+              <span class="sp"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg></span>
+              退出
+            </button>
+          </div>
+
+          <div class="logpanel">
+            <div class="loghead">
+              <span class="t">运行日志</span>
+              <span class="live" id="logLive">● 监听中</span>
+              <div class="spacer"></div>
+              <button id="btnClear">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+                清空
+              </button>
+            </div>
+            <div class="logbody" id="logBody" aria-live="polite">
+              <div class="log-line"><span class="dot"></span><span class="t">[20:49:07]</span><span>已连接 AEDT 进程 23948。</span></div>
+              <div class="log-line"><span class="dot"></span><span class="t">[20:49:22]</span><span>已连接 AEDT 进程 23948。</span></div>
+              <div class="log-line"><span class="dot"></span><span class="t">[20:50:02]</span><span>已连接 AEDT 进程 23948。</span></div>
+              <div class="log-line"><span class="dot"></span><span class="t">[20:50:17]</span><span>已连接 AEDT 进程 23948。</span></div>
+              <div class="log-line"><span class="dot"></span><span class="t">[20:50:32]</span><span>已连接 AEDT 进程 23948。</span></div>
+              <div class="log-line"><span class="dot"></span><span class="t">[20:50:47]</span><span>已连接 AEDT 进程 23948。</span></div>
+              <div class="log-line"><span class="dot"></span><span class="t">[20:51:02]</span><span>已连接 AEDT 进程 23948。</span><span class="cursor"></span></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="footer">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9v6M9 5v14M14 9v6M19 5v14"/></svg>
+          天线小栈出品 · HFSS 中文助手 V1.0.1
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 02 悬浮翻译演示 ===== -->
+    <div class="section">
+      <div class="section-head">
+        <span class="num">02</span>
+        <h2>悬浮翻译演示</h2>
+        <span class="sub">鼠标移到 AEDT 任意菜单 / 按钮 / 属性项上，即弹出中文翻译</span>
+      </div>
+
+      <div class="demo-hint">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M12 11v5"/></svg>
+        <span><b>试试看：</b>将鼠标移到左侧 AEDT 项目树中的任意菜单项上，右侧会悬浮弹出对应的中文翻译；右下角的悬浮快捷条可拖动到窗口任意位置。</span>
+      </div>
+
+      <div class="aedt" id="aedtWin">
+        <div class="aedt-titlebar">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="t">HFSSDesign1 (DrivenModal)</span>
+          <span class="tab">Lists</span>
+        </div>
+        <div class="aedt-body" id="aedtBody">
+          <div class="aedt-tree" id="aedtTree"></div>
+          <div class="aedt-splitter"></div>
+          <div class="aedt-lists">
+            <div class="lh">LISTS</div>
+            <div class="ph">列表区域</div>
+          </div>
+          <div class="aedt-tip" id="aedtTip">
+            <span class="tt-tag">悬停翻译</span>
+            <div class="tt-arrow"></div>
+            <div class="tt-zh" id="tipZh">网格操作</div>
+            <div class="tt-en" id="tipEn">Mesh Operations</div>
+          </div>
+        </div>
+
+        <!-- 悬浮快捷条：开关 + 螺丝（设置），可拖动 -->
+        <div class="quick-bar" id="quickBar">
+          <div class="qb-grip" aria-hidden="true" title="拖动我到任意位置"><span></span><span></span><span></span></div>
+          <button class="sw on" id="qbSwitch" role="switch" aria-checked="true" aria-label="翻译开关" title="点击切换翻译开/关">
+            <span class="sw-knob"></span>
+          </button>
+          <span class="qb-div"></span>
+          <button class="qb-gear" id="qbGear" aria-label="设置" title="打开设置">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.55V21a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1-1.55 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.7 1.7 0 0 0 .34-1.87 1.7 1.7 0 0 0-1.55-1H3a2 2 0 1 1 0-4h.09a1.7 1.7 0 0 0 1.55-1 1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.7 1.7 0 0 0 1.87.34h.01a1.7 1.7 0 0 0 1-1.55V3a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1 1.55h.01a1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.34 1.87v.01a1.7 1.7 0 0 0 1.55 1H21a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.55 1z"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer" style="padding:6px 0 4px">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9v6M9 5v14M14 9v6M19 5v14"/></svg>
+      天线小栈出品 · HFSS 中文助手 V1.0.1 效果预览
+    </div>
+  </div>
+</div>
+
+<!-- ===== 关于弹窗 ===== -->
+<div class="overlay" id="aboutOverlay" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
+  <div class="about-card">
+    <button class="across" id="aboutClose" aria-label="关闭">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="ahead">
+      <h2 id="aboutTitle">天线小栈</h2>
+      <p class="slogan">关注天线小栈，探索天线的那些事</p>
+    </div>
+    <div class="qr-box">
+      <img src="images/qr.png" alt="天线小栈公众号二维码">
+    </div>
+    <div class="id-rows">
+      <div class="id-row"><span class="k">公众号名称</span><span class="v">天线小栈</span></div>
+      <div class="id-row">
+        <span class="k">公众号ID</span><span class="v">antenna_stack</span>
+        <button class="copy-btn" id="btnCopy">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          复制
+        </button>
+      </div>
+    </div>
+    <p class="follow-hint">打开微信扫一扫，关注公众号</p>
+    <div class="afoot">天线小栈出品</div>
+  </div>
+</div>
+
+<!-- ===== 设置弹窗 ===== -->
+<div class="overlay" id="settingsOverlay" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+  <div class="settings-card">
+    <div class="shead">
+      <svg class="gear-ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.55V21a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1-1.55 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.7 1.7 0 0 0 .34-1.87 1.7 1.7 0 0 0-1.55-1H3a2 2 0 1 1 0-4h.09a1.7 1.7 0 0 0 1.55-1 1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.7 1.7 0 0 0 1.87.34h.01a1.7 1.7 0 0 0 1-1.55V3a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1 1.55h.01a1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.34 1.87v.01a1.7 1.7 0 0 0 1.55 1H21a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.55 1z"/></svg>
+      <h2 id="settingsTitle">设置</h2>
+      <button class="across" id="settingsClose" aria-label="关闭">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="sbody">
+      <div class="set-row">
+        <div class="label">翻译总开关<small>控制悬停翻译是否生效</small></div>
+        <button class="sw on" id="setMain" role="switch" aria-checked="true"><span class="sw-knob"></span></button>
+      </div>
+      <div class="set-row">
+        <div class="label">悬停延迟<small>鼠标悬停后多久弹出翻译气泡</small></div>
+        <div class="seg" id="delaySeg">
+          <button data-delay="0.2" class="active">0.2s</button>
+          <button data-delay="0.5">0.5s</button>
+          <button data-delay="1">1s</button>
+        </div>
+      </div>
+      <div class="set-row">
+        <div class="label">气泡显示原文<small>翻译气泡中同时显示英文原文</small></div>
+        <button class="sw on" id="setOrig" role="switch" aria-checked="true"><span class="sw-knob"></span></button>
+      </div>
+      <div class="set-row">
+        <div class="label">开机自启动<small>系统启动时自动运行本助手</small></div>
+        <button class="sw off" id="setBoot" role="switch" aria-checked="false"><span class="sw-knob"></span></button>
+      </div>
+    </div>
+    <div class="sfoot">
+      <button class="btn sm" id="setReset">恢复默认</button>
+      <button class="btn sm primary" id="setDone">完成</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+
+<script src="js/software-demo.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+Verification report
+index.html: contains srcdoc= = False
+index.html: contains data:image = False
+index.html: contains cloudflare = False
+software-demo.html: contains srcdoc= = False
+software-demo.html: contains data:image = False
+software-demo.html: contains cloudflare = False
